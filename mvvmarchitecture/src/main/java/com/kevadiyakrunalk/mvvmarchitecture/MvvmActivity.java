@@ -138,9 +138,4 @@ public abstract class MvvmActivity<T extends ViewDataBinding, S extends MvvmView
             getViewModel().removeOnPropertyChangedCallback(callback);
         }
     }
-
-    /*@Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CustomFontContextWrapper.wrap(newBase));
-    }*/
 }

@@ -1,12 +1,12 @@
 package com.kevadiyakrunalk.mvvmarchitecture.delegates;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.util.SparseArrayCompat;
 
 import com.kevadiyakrunalk.mvvmarchitecture.common.MvvmViewModel;
@@ -71,9 +71,9 @@ class ViewModelCache {
     private ViewModelCacheFragment getFragment(Context context) {
         if (cacheFragment != null) return cacheFragment;
 
-        final Activity activity = getActivity(context);
+        final FragmentActivity activity = getActivity(context);
 
-        final ViewModelCacheFragment fragment = (ViewModelCacheFragment) activity.getFragmentManager()
+        final ViewModelCacheFragment fragment = (ViewModelCacheFragment) activity.getSupportFragmentManager()
                 .findFragmentByTag(FRAGMENT_TAG);
 
         // Existing Fragment found
@@ -84,14 +84,14 @@ class ViewModelCache {
 
         // No Fragment found, so create a new one
         cacheFragment = new ViewModelCacheFragment();
-        activity.getFragmentManager().beginTransaction().add(cacheFragment, FRAGMENT_TAG).commit();
+        activity.getSupportFragmentManager().beginTransaction().add(cacheFragment, FRAGMENT_TAG).commit();
         return cacheFragment;
     }
 
-    private Activity getActivity(Context context) {
+    private FragmentActivity getActivity(Context context) {
         Context wrapper = context;
         while (wrapper instanceof ContextWrapper) {
-            if (wrapper instanceof Activity) return (Activity) wrapper;
+            if (wrapper instanceof FragmentActivity ) return (FragmentActivity) wrapper;
             wrapper = ((ContextWrapper) wrapper).getBaseContext();
         }
         throw new IllegalStateException("Could not find the surrounding FragmentActivity. Does your activity extends "

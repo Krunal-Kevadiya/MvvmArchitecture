@@ -34,9 +34,9 @@ public class ActivityDelegate<T extends ViewDataBinding, S extends MvvmViewModel
      * Create delegate for activity.
      *
      * @param callback          the {@link ActivityDelegateCallback} for this delegate
-     * @param delegatedActivity the {@link Activity} for delegation
+     * @param delegatedActivity the {@link Activity } for delegation
      */
-    public ActivityDelegate(@NonNull ActivityDelegateCallback<T, S> callback, @NonNull Activity delegatedActivity) {
+    public ActivityDelegate(@NonNull ActivityDelegateCallback<T, S> callback, @NonNull Activity  delegatedActivity) {
         super(callback);
         this.callback = callback;
         this.delegatedActivity = delegatedActivity;

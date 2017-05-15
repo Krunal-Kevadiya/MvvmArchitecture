@@ -1,9 +1,9 @@
 package com.kevadiyakrunalk.mvvmarchitecture.delegates;
 
-import android.app.Fragment;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 
 import com.kevadiyakrunalk.mvvmarchitecture.common.NavigatingViewModel;
 import com.kevadiyakrunalk.mvvmarchitecture.common.Navigator;

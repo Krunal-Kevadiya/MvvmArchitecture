@@ -2,15 +2,6 @@ package com.kevadiyakrunalk.mvvmarchitecture.common;
 
 import android.support.annotation.Nullable;
 
-/**
- * ViewModel with navigation
- * <p>
- * ViewModel has no direct reference to context. So it can't starts new {@link android.app.Activity}
- * or replace {@link android.app.Fragment} via {@link android.app.FragmentManager}.
- * This work can be delegated to external navigator.
- *
- * @param <T> the type of {@link Navigator}
- */
 public abstract class NavigatingViewModel<T extends Navigator> extends BaseViewModel {
 
     @Nullable

@@ -1,13 +1,13 @@
 package com.kevadiyakrunalk.mvvmarchitecture.delegates;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 
 import com.kevadiyakrunalk.mvvmarchitecture.common.MvvmViewModel;
@@ -76,7 +76,7 @@ public class FragmentDelegate<T extends ViewDataBinding, S extends MvvmViewModel
      * @param bundle Bundle in which to place key for cached ViewModel.
      */
     public void onSaveInstanceState(@NonNull Bundle bundle) {
-        final Activity activity = delegatedFragment.getActivity();
+        final FragmentActivity activity = delegatedFragment.getActivity();
         final int key = viewModelKey == 0 ? cache.getSpareKey(activity) : viewModelKey;
         cache.putViewModel(key, viewModel, activity);
 
